@@ -51,7 +51,7 @@ import FooterHeading from './FooterHeading.vue'
     </section>
 
     <div class="mt-25" v-reveal>
-      <hr class="mx-auto mb-5 w-1/2 border-red-400" />
+      <hr class="mx-auto mb-5 w-95 border-red-400" />
 
       <p class="text-center text-sm font-bold uppercase">
         <span
