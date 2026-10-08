@@ -1,14 +1,21 @@
 <script setup lang="ts">
 import { links, socials } from '@/data/links.ts'
+import { vReveal } from '@/directives/reveal.ts'
 
 import FooterHeading from './FooterHeading.vue'
 </script>
 
 <template>
   <footer class="bg-black/90 px-5 py-25 text-center text-white lg:text-left">
-    <section class="mx-auto grid max-w-screen-2xl gap-5 lg:grid-cols-3">
+    <section class="mx-auto grid max-w-screen-2xl gap-5 lg:grid-cols-3" v-reveal>
       <article>
-        <RouterLink aria-label="Home" to="/">Logo Here...</RouterLink>
+        <RouterLink aria-label="Home" to="/">
+          <img
+            alt="Portfolio Website Logo"
+            class="inline-block w-24 invert"
+            src="@/assets/images/logo.png"
+          />
+        </RouterLink>
       </article>
 
       <article>
@@ -43,13 +50,15 @@ import FooterHeading from './FooterHeading.vue'
       </article>
     </section>
 
-    <hr class="mx-auto mt-25 mb-5 w-1/2 border-red-400" />
+    <div class="mt-25" v-reveal>
+      <hr class="mx-auto mb-5 w-1/2 border-red-400" />
 
-    <p class="text-center text-sm font-bold uppercase">
-      <span
-        ><i aria-hidden="true" class="fa-solid fa-copyright"></i> 2026 Clein Wepee. All Rights
-        Reserved.</span
-      >
-    </p>
+      <p class="text-center text-sm font-bold uppercase">
+        <span
+          ><i aria-hidden="true" class="fa-solid fa-copyright"></i> 2026 Clein Wepee. All Rights
+          Reserved.</span
+        >
+      </p>
+    </div>
   </footer>
 </template>

@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { vReveal } from '@/directives/reveal'
+
 import ContentHeading from '@/components/ContentHeading.vue'
-import SiteHeader from '@/components/SiteHeader.vue'
+import ParticlesBackground from '@/components/ParticlesBackground.vue'
 import SiteFooter from '@/components/SiteFooter.vue'
+import SiteHeader from '@/components/SiteHeader.vue'
 
 /**
  * Project Section
@@ -38,13 +41,15 @@ const getTagColor = (tag: string) => tagColors[tag] ?? '#6b7280'
   <SiteHeader />
 
   <main
-    class="duration-500 motion-reduce:transition-none dark:bg-black dark:text-white"
+    class="animate-fade-in-down duration-500 dark:bg-black dark:text-white"
     id="main"
     tabindex="-1"
   >
     <div class="mx-auto max-w-screen-2xl p-5">
       <!-- Hero -->
-      <section class="scroll-mt-24 py-50 text-center md:text-left" id="hero">
+      <section class="relative isolate scroll-mt-24 py-50 text-center md:text-left" id="hero">
+        <ParticlesBackground />
+
         <header class="font-montserrat">
           <p class="text-2xl font-light">
             <span class="font-black text-red-600">
@@ -65,7 +70,7 @@ const getTagColor = (tag: string) => tagColors[tag] ?? '#6b7280'
         <div>
           <a
             href="mailto:cleinentine@gmail.com"
-            class="inline-block bg-red-600 px-7 py-4 text-sm font-bold text-white uppercase duration-500 hover:rounded-md hover:bg-red-700 motion-reduce:transition-none"
+            class="inline-block bg-red-600 px-7 py-4 text-sm font-bold text-white uppercase duration-500 hover:rounded-md hover:bg-red-700"
           >
             Send an Email
 
@@ -75,13 +80,13 @@ const getTagColor = (tag: string) => tagColors[tag] ?? '#6b7280'
       </section>
 
       <!-- Projects -->
-      <section class="mt-50 mb-100" id="projects">
+      <section class="mt-50 mb-100" id="projects" v-reveal>
         <ContentHeading text="My Projects" />
 
         <article class="grid gap-5 md:grid-cols-2 lg:grid-cols-4" v-if="projects.length > 0">
           <RouterLink
             :to="project.url"
-            class="group duration-500 hover:text-red-400 motion-reduce:transition-none"
+            class="group duration-500 hover:text-red-400"
             v-for="project in projects"
             :key="project.id"
           >
@@ -98,7 +103,7 @@ const getTagColor = (tag: string) => tagColors[tag] ?? '#6b7280'
             <img
               :alt="`${project.title}'s Thumbnail`"
               :src="project.thumbnail"
-              class="my-2 w-full duration-500 group-hover:rounded-md motion-reduce:transition-none"
+              class="my-2 w-full duration-500 group-hover:rounded-md"
               loading="lazy"
             />
 

@@ -7,11 +7,17 @@ const { dark, toggleDarkMode } = useDarkMode()
 
 <template>
   <header
-    class="fixed z-50 w-full bg-white/80 p-5 backdrop-blur duration-500 motion-reduce:transition-none dark:bg-black/80 dark:text-white"
+    class="fixed z-50 w-full animate-fade-in-down bg-white/80 p-5 backdrop-blur duration-500 dark:bg-black/80 dark:text-white"
   >
     <div class="mx-auto grid max-w-screen-2xl grid-cols-2">
       <div class="font-montserrat">
-        <RouterLink aria-label="Home" to="/"> LOGO HERE </RouterLink>
+        <RouterLink aria-label="Home" to="/">
+          <img
+            alt="Portfolio Website Logo"
+            class="inline-block w-9 duration-500 md:w-12 lg:w-14 dark:invert"
+            src="@/assets/images/logo.png"
+          />
+        </RouterLink>
       </div>
 
       <nav aria-label="Primary" class="text-right font-black uppercase">
