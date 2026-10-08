@@ -11,9 +11,9 @@ const { dark, toggleDarkMode } = useDarkMode()
   >
     <div class="mx-auto grid max-w-screen-2xl grid-cols-2">
       <div class="font-montserrat">
-        <RouterLink aria-label="Home" to="/">
+        <RouterLink to="/">
           <img
-            alt="Portfolio Website Logo"
+            alt="Clein Wepee, Home"
             class="inline-block w-9 duration-500 md:w-12 lg:w-14 dark:invert"
             src="@/assets/images/logo.png"
           />
@@ -23,7 +23,7 @@ const { dark, toggleDarkMode } = useDarkMode()
       <nav aria-label="Primary" class="text-right font-black uppercase">
         <ul>
           <li class="mr-5 inline-block last:mr-0" v-for="link in links" :key="link.name">
-            <RouterLink class="p-1 hover:underline" :to="link.url">
+            <RouterLink class="inline-block p-2 hover:underline" :to="link.url">
               <span><i :class="['fa-solid', link.icon, 'mr-1']" aria-hidden="true"></i></span>
               <span class="sr-only lg:not-sr-only"> {{ link.name }}</span>
             </RouterLink>
@@ -32,9 +32,8 @@ const { dark, toggleDarkMode } = useDarkMode()
           <!-- Dark Mode -->
           <li class="inline-block">
             <button
-              :aria-pressed="dark"
               @click="toggleDarkMode"
-              class="toggle cursor-pointer p-1 uppercase hover:underline"
+              class="cursor-pointer p-2 uppercase hover:underline"
               type="button"
             >
               <span class="mr-1 inline-block"

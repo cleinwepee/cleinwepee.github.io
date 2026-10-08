@@ -9,9 +9,9 @@ import FooterHeading from './FooterHeading.vue'
   <footer class="bg-black/90 px-5 py-25 text-center text-white lg:text-left">
     <section class="mx-auto grid max-w-screen-2xl gap-5 lg:grid-cols-3" v-reveal>
       <article>
-        <RouterLink aria-label="Home" to="/">
+        <RouterLink to="/">
           <img
-            alt="Portfolio Website Logo"
+            alt="Clein Wepee, Home"
             class="inline-block w-24 invert"
             src="@/assets/images/logo.png"
           />

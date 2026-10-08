@@ -41,7 +41,7 @@ const getTagColor = (tag: string) => tagColors[tag] ?? '#6b7280'
   <SiteHeader />
 
   <main
-    class="animate-fade-in-down duration-500 dark:bg-black dark:text-white"
+    class="animate-fade-in-down duration-500 focus:outline-none dark:bg-black dark:text-white"
     id="main"
     tabindex="-1"
   >
@@ -80,13 +80,15 @@ const getTagColor = (tag: string) => tagColors[tag] ?? '#6b7280'
       </section>
 
       <!-- Projects -->
-      <section class="mt-50 mb-100" id="projects" v-reveal>
+      <section class="mt-50 mb-100 scroll-mt-24" id="projects" v-reveal>
         <ContentHeading text="My Projects" />
 
         <article class="grid gap-5 md:grid-cols-2 lg:grid-cols-4" v-if="projects.length > 0">
-          <RouterLink
-            :to="project.url"
-            class="group duration-500 hover:text-red-400"
+          <a
+            :href="project.url"
+            class="group duration-500 hover:text-red-600 dark:hover:text-red-400"
+            target="_blank"
+            rel="noopener noreferrer"
             v-for="project in projects"
             :key="project.id"
           >
@@ -95,6 +97,7 @@ const getTagColor = (tag: string) => tagColors[tag] ?? '#6b7280'
                 >{{ String(project.id).padStart(2, '0') }}.</span
               >
               <span class="text-2xl font-bold">{{ project.title }}</span>
+              <span class="sr-only">(opens in new tab)</span>
               <span class="ml-1"
                 ><i aria-hidden="true" class="fa-solid fa-up-right-from-square"></i
               ></span>
@@ -117,7 +120,7 @@ const getTagColor = (tag: string) => tagColors[tag] ?? '#6b7280'
                 {{ tag }}
               </li>
             </ul>
-          </RouterLink>
+          </a>
         </article>
 
         <article class="mt-5 text-center select-none" v-else>

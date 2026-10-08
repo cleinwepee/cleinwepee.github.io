@@ -1,19 +1,11 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-montserrat: 'Montserrat', sans-serif;
   --font-nunito: 'Nunito', sans-serif;
-}
-
-@custom-variant dark (&:where(.dark, .dark *));
-
-:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-}
-
-@theme {
-  --animate-fade-in-down: fade-in-down 0.6s ease-out both;
+  --animate-fade-in-down: fade-in-down 0.6s ease-out backwards;
 
   @keyframes fade-in-down {
     from {
@@ -25,6 +17,15 @@
       transform: translateY(0);
     }
   }
+}
+
+:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
+
+.dark :focus-visible {
+  outline-color: #f87171;
 }
 
 @media (prefers-reduced-motion: reduce) {
